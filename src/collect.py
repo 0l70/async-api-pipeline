@@ -1,5 +1,20 @@
-"""asyncio.gather()로 3개 API를 동시에 호출해 원본 JSON을 수집한다."""
+# ----------------------------------------------
+# 파이썬 실습 코드
+# 작성일 : 2026-07-15
+# 작성자 : 이경민
+# 설명 : 1) Open-Meteo, countries.dev, ip-api 3개 API 동시 호출
+#       2) asyncio.gather()를 이용한 비동기 병렬 수집 파이프라인
+#       3) 개별 API 실패 시에도 전체 파이프라인이 중단되지 않도록 예외 처리
+#
+# 변경일 : 2026-07-15 최초 작성
+#        2026-07-15 예외 처리 추가 (실패 시 error 필드로 반환)
+#        2026-07-15 RestCountries 유료화로 countries.dev API로 교체
+#
+# All Rights Reserved by 이경민
+# ----------------------------------------------
+
 import asyncio
+
 import httpx
 
 WEATHER_URL = (
