@@ -29,17 +29,25 @@ def test_weather_record_invalid_probability():
 
 def test_country_info_valid():
     c = CountryInfo(
-        name="Korea (Republic of)", capital="Seoul",
-        region="Asia", subregion="Eastern Asia",
-        population=51780579, area=100210.0,
+        name="Korea (Republic of)",
+        capital="Seoul",
+        region="Asia",
+        subregion="Eastern Asia",
+        population=51780579,
+        area=100210.0,
     )
     assert c.region == "Asia"
 
 
 def test_ip_info_valid():
     ip = IPInfo(
-        query="8.8.8.8", country="United States", region_name="California",
-        city="Mountain View", lat=37.4, lon=-122.07, isp="Google LLC",
+        query="8.8.8.8",
+        country="United States",
+        region_name="California",
+        city="Mountain View",
+        lat=37.4,
+        lon=-122.07,
+        isp="Google LLC",
         timezone="America/Los_Angeles",
     )
     assert ip.query == "8.8.8.8"
